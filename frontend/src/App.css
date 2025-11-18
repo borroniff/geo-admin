@@ -1,0 +1,43 @@
+/* Layout principal do App */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Estilos de utilidade */
+.text-link {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+}
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.6;
+}
+.icon-button:hover {
+  opacity: 1;
+}
+
+select {
+  padding: 0.5em 0.8em;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  margin-left: 1rem;
+}

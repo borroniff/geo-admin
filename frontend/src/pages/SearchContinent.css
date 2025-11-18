@@ -1,0 +1,280 @@
+/* Reutilizando estilos base e adicionando estilos do Modal */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+.search-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 1.5rem; 
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #111827;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1100px; 
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-top: 0; 
+  margin-bottom: 1.5rem; 
+  text-align: left;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* --- BARRA DE PESQUISA --- */
+.search-bar-container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-radius: 6px;
+}
+
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  padding-left: 1rem;
+  height: 56px;
+  transition: border-color 0.2s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #1890ff;
+  z-index: 2;
+}
+
+.icon-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  color: #9ca3af;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #374151;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.search-button-primary {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.search-button-primary:hover {
+  background-color: #0077e6;
+}
+
+.search-button-primary:disabled {
+  background-color: #bfdbfe;
+  cursor: not-allowed;
+}
+
+.msg-error {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.msg-success {
+  color: #10b981;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* --- CARD DE RESULTADO (CONTINENTE) --- */
+.result-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  min-height: 320px;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-section {
+  width: 45%;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.continent-img {
+  width: 80%; /* Ajuste para a imagem ortográfica do continente não ficar esticada demais */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.info-section {
+  width: 55%;
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-add {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-add:hover {
+  background-color: #0077e6;
+}
+
+/* --- MODAL / POPUP --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: scaleUp 0.2s ease-out;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.modal-content p {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.modal-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-cancel {
+  background: none;
+  border: 1px solid #d1d5db;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 500;
+}
+.btn-cancel:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-confirm {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-confirm:hover {
+  background-color: #059669;
+}
+.btn-confirm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

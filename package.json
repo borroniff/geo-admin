@@ -1,0 +1,18 @@
+{
+  "name": "geoadmin",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "run-p dev:backend dev:frontend",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "prisma": "npm run prisma -w backend"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

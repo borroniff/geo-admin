@@ -1,0 +1,145 @@
+/* Estilo comum para os carrosséis */
+.horizontal-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem; /* Espaço para a barra de rolagem */
+  /* Esconde a barra de rolagem visualmente */
+  scrollbar-width: none; /* Firefox */
+}
+.horizontal-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Card de Continente */
+.continent-card {
+  flex: 0 0 300px; /* Mantém o tamanho original para continentes */
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.continent-card-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+.continent-card-info p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.continent-card-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #e9ecef;
+}
+
+/* Card de País */
+.country-card {
+  /* ATUALIZADO: Reduzido para 220px para acomodar 5 itens */
+  flex: 0 0 220px;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.country-card-flag {
+  width: 100%;
+  height: 130px; /* Ajustado proporcionalmente à largura */
+  background-color: #e9ecef;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.country-card-info {
+  padding: 1rem; /* Padding ligeiramente reduzido */
+}
+.country-card-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem; /* Fonte ligeiramente menor */
+}
+.country-card-info p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: #495057;
+}
+.country-card-info p strong {
+  color: #212529;
+}
+.country-card-info .text-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid #e9ecef;
+  padding: 0.75rem 1rem;
+}
+
+/* Lista de Cidades */
+.city-list-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+}
+
+.city-list-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+.city-list-item:last-child {
+  border-bottom: none;
+}
+
+.city-list-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #495057;
+}
+.city-list-item .city-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #212529;
+}
+.city-list-item .city-name span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.city-list-item .city-coords {
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.city-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+.city-pagination span {
+  font-size: 0.9rem;
+  color: #6c757d;
+}

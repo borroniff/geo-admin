@@ -1,0 +1,47 @@
+// Arquivo: prisma/schema.prisma
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// --- Cadastro de Continentes ---
+model Continent {
+  id          Int       @id @default(autoincrement())
+  nome        String    @unique // Adicionado unique para evitar duplicatas
+  descricao   String?   // Descrição opcional
+  countries   Country[] // Relação: Um continente tem muitos países
+}
+
+// --- Cadastro de Países ---
+model Country {
+  id             Int      @id @default(autoincrement())
+  nome           String   @unique // Adicionado unique
+  code           String
+  populacao      BigInt   // Usar BigInt para populações grandes
+  idioma_oficial String
+  moeda          String
+  id_continente  Int
+
+  // Relação: Um país pertence a um continente
+  continent      Continent @relation(fields: [id_continente], references: [id], onDelete: Cascade)
+
+  // Relação: Um país tem muitas cidades
+  cities         City[]
+}
+
+// --- Cadastro de Cidades ---
+model City {
+  id          Int     @id @default(autoincrement())
+  nome        String
+  populacao   BigInt
+  latitude    Float
+  longitude   Float
+  id_pais     Int
+
+  // Relação: Uma cidade pertence a um país
+  country     Country @relation(fields: [id_pais], references: [id], onDelete: Cascade)
+}
